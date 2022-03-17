@@ -3,8 +3,8 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const searchText = search.value.replace(/\s/g, "");
-  const searchTerm1 = searchText.toUpperCase();
+  var searchText = search.value.replace(/\s/g, "");
+  var searchTerm1 = searchText.toUpperCase();
   var searchTerm = searchTerm1;
 
   document.getElementById("showLocals").style.display = "block";
