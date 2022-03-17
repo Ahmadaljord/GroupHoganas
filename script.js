@@ -302,11 +302,6 @@ function getInfo() {
     .then((data) => {
       let output = '<h2 ID="allnews">Good to know</h2>';
       console.log(data);
-
-      data.GoodToKnow.forEach(function (ayat) {
-        console.log(ayat.TitleSV);
-      });
-
       data.GoodToKnow.forEach(function (GoodToKnow) {
         output += `
           <ul class="allnews">
