@@ -10,7 +10,11 @@ form.addEventListener('submit', (e) => {
   document.getElementById("content").style.display = "none";
   document.getElementById("moreinfo").style.display = "block";
   document.getElementById("output5").style.display = "none";
-  fetch('municipalities.json')
+  
+  //Trying out async and await to get updated data
+  async function Municipalities() {
+    let response = await fetch('municipalities.json');
+    let user = await response.json ();
     .then((res) => res.text())
     .then(data => JSON.parse(data))
     .then((data) => {
