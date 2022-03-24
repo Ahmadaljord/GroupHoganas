@@ -15,9 +15,12 @@ form.addEventListener('submit', (e) => {
   async function Municipalities() {
     let response = await fetch('municipalities.json');
     let user = await response.json ();
+    catch (error) {
+    console.log(error);
+    }
     .then((res) => res.text())
     .then(data => JSON.parse(data))
-    .then((data) => {
+    .then((data) =>
 
       data.Municipalities.forEach(function (Municipalities) {
         if (`${Municipalities.Ort}` === searchTerm) {
@@ -72,8 +75,9 @@ function moreinfo() {
 //show region
 document.getElementById('showRegion').addEventListener('click', showRegion);
 
-function showRegion() {
-  fetch('regions.json')
+async function showRegion() {
+  let response = await fetch('regions.json')
+  let user = await response.json();
     .then((res) => res.text())
     .then(data => JSON.parse(data))
     .then((data) => {
@@ -105,9 +109,9 @@ function showRegion() {
 //function getactivities()
 document.getElementById('showActivities').addEventListener('click', showActivities);
 
-function showActivities() {
-
-  fetch('activities.json')
+async function showActivities() {
+  let response = await fetch('activities.json')
+  let user = await response.json();
     .then((res) => res.text())
     .then(data => JSON.parse(data))
     .then((data) => {
@@ -151,8 +155,9 @@ function showActivities() {
 //function showLocals()
 document.getElementById('showLocals').addEventListener('click', getLocals);
 
-function getLocals() {
-  fetch('locals.json')
+async function getLocals() {
+  let response = await fetch('locals.json')
+  let user = await response.json();
     .then((res) => res.text())
     .then(data => JSON.parse(data))
     .then((data) => {
@@ -185,11 +190,12 @@ function getLocals() {
 //Get good to know list
 document.getElementById('getgoodtoknowlist').addEventListener('click', getgoodtoknowlist);
 
-function getgoodtoknowlist() {
+async function getgoodtoknowlist() {
   document.getElementById("content").style.display = "none";
   document.getElementById("output5").style.display = "block";
   document.getElementById("moreinfo").style.display = "none";
-  fetch('GoodToKnow.json')
+  let response = await fetch('GoodToKnow.json')
+  let user = await response.json();
     .then((res) => res.text())
     .then(data => JSON.parse(data))
     .then((data) => {
